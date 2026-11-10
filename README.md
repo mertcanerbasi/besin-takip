@@ -10,7 +10,7 @@ Günlük kalori, makro ve öğün planı takibi. Statik bir sitedir, GitHub Page
 - Su takibi ve gün notu.
 - Kilo ve vücut ölçüleri (bel, kalça, göğüs, kol, bacak, boyun, yağ %). Hareketli ortalamalı grafik ve VKİ.
 - Raporlar: 7 gün ile 1 yıl arası ortalamalar, hedef uyumu, protein hedefine ulaşma, kalori dengesi, gün gün tablo.
-- Yaklaşık 140 hazır Türk mutfağı ve temel gıda (100 g başına). Kendi besinlerini porsiyonlarıyla ekleyebilirsin.
+- Çiğ ağırlık esaslı besin listesi (~270 malzeme): et, tavuk, balık, tahıl, bakliyat, sebze, meyve, süt ürünleri, kuruyemiş, yağ, sos ve içecekler. Pişmiş yemek yoktur; yemekler malzemeleriyle eklenir. Kendi besinlerini porsiyonlarıyla ekleyebilirsin.
 
 ## Veri güvenliği: geçmiş neden kaybolmaz
 - Veriler ayrı bir **private** repoda (`besin-takip-data`) JSON olarak tutulur. Her değişiklik bir commit olduğundan, git geçmişi her sürümü saklar.

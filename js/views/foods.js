@@ -15,7 +15,7 @@ export function render(container) {
     <h1>Besinler</h1>
     <button class="btn primary" data-act="new">+ Yeni besin</button>
   </div>
-  <p class="muted small">Değerler 100 g (içeceklerde 100 ml) başınadır. Hazır listedeki değerler yaklaşıktır; bir besini kendi değerlerinle kullanmak için "Kopyala" de, özel besin olarak düzenle.</p>
+  <p class="muted small">Değerler 100 g (içeceklerde 100 ml) başına ve <strong>çiğ ağırlığa</strong> göredir: et, tavuk, balık, tahıl, bakliyat ve sebzeyi pişirmeden önce tart, pişirme yağını ayrıca ekle. Listede pişmiş yemek yoktur; yaptığın yemeği malzemeleriyle ayrı ayrı ekle. Kendi değerlerini kullanmak için "Kopyala" de.</p>
   <div class="filters">
     <input class="input search" type="search" placeholder="Ara…" value="${esc(query)}">
     <select class="input slim cat"><option value="all">Tüm kategoriler</option>${cats.map(c => `<option ${c === cat ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select>

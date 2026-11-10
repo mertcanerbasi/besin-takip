@@ -64,7 +64,8 @@ function showSearch(root, ctx) {
   const render = () => {
     root.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     if (tab === 'search') {
-      tabBody.innerHTML = `<input class="input search" type="search" placeholder="Besin ara… (ör. yumurta, pilav)" autocomplete="off">
+      tabBody.innerHTML = `<input class="input search" type="search" placeholder="Besin ara… (ör. tavuk, pirinç)" autocomplete="off">
+        <p class="muted small hint">Değerler çiğ ağırlığa göre: pişirmeden önce tart.</p>
         <div class="food-results"></div>`;
       const input = tabBody.querySelector('input');
       const results = tabBody.querySelector('.food-results');
