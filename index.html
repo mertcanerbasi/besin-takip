@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Besin Takip</title>
+  <meta name="description" content="Günlük kalori, makro ve öğün planı takibi">
+  <meta name="theme-color" content="#2f6b4f">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/gun">
+      <img src="assets/icon.svg" alt="" width="28" height="28">
+      <span>Besin Takip</span>
+    </a>
+    <nav class="topnav">
+      <a data-nav="gun" href="#/gun">Gün</a>
+      <a data-nav="rapor" href="#/rapor">Raporlar</a>
+      <a data-nav="vucut" href="#/vucut">Vücut</a>
+      <a data-nav="besinler" href="#/besinler">Besinler</a>
+      <a data-nav="ayarlar" href="#/ayarlar">Ayarlar</a>
+    </nav>
+    <a id="sync-pill" class="sync-pill" href="#/ayarlar">…</a>
+  </header>
+
+  <div id="local-banner" class="banner" hidden>
+    Veriler şu an <strong>yalnızca bu tarayıcıda</strong>. Kaybolmaması için <a href="#/ayarlar">GitHub'a bağla →</a>
+  </div>
+
+  <main id="view" class="container"></main>
+
+  <nav class="bottomnav">
+    <a data-nav="gun" href="#/gun"><span>📅</span>Gün</a>
+    <a data-nav="rapor" href="#/rapor"><span>📊</span>Rapor</a>
+    <a data-nav="vucut" href="#/vucut"><span>⚖️</span>Vücut</a>
+    <a data-nav="besinler" href="#/besinler"><span>🥗</span>Besinler</a>
+    <a data-nav="ayarlar" href="#/ayarlar"><span>⚙️</span>Ayarlar</a>
+  </nav>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>
