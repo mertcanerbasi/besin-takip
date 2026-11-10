@@ -134,6 +134,8 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; font-
 }
 textarea.input { resize: vertical; }
 .input:focus, select:focus { outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 1px; border-color: var(--accent); }
+.input.secret { -webkit-text-security: disc; font-family: monospace; }
+.input.secret:focus { -webkit-text-security: none; }
 .input.slim { width: auto; padding: 6px 10px; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }

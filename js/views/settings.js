@@ -36,10 +36,10 @@ export function render(container) {
       </ol>
       <form class="form gh-form">
         <div class="grid2">
-          <label class="field"><span>GitHub kullanıcı adı</span><input class="input" name="owner" required value="mertcanerbasi" autocomplete="off"></label>
+          <label class="field"><span>GitHub kullanıcı adı</span><input class="input" name="owner" required value="mertcanerbasi" autocomplete="off" data-lpignore="true" data-form-type="other"></label>
           <label class="field"><span>Veri reposu</span><input class="input" name="repo" required value="besin-takip-data" autocomplete="off"></label>
         </div>
-        <label class="field"><span>Token</span><input class="input" name="token" type="password" required placeholder="github_pat_…" autocomplete="off"></label>
+        <label class="field"><span>Token</span><input class="input secret" name="gh_pat" type="text" required placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other"></label>
         <p class="muted small">Token yalnızca bu cihazın tarayıcısında saklanır; site koduna ya da repoya yazılmaz. Her cihazda bir kez girmen gerekir.</p>
         <div class="row-end"><button class="btn primary" type="submit">Bağlan ve test et</button></div>
       </form>`}
@@ -99,7 +99,12 @@ export function render(container) {
     ev.preventDefault();
     const form = ev.target;
     const btn = form.querySelector('button[type=submit]');
-    const c = { owner: form.owner.value, repo: form.repo.value, token: form.token.value };
+    // Tarayıcının otomatik doldurduğu parola vb. karışmasın: metnin içinden yalnızca token'ı al.
+    const raw = form.gh_pat.value;
+    const m = raw.match(/github_pat_[A-Za-z0-9_]+|gh[pousr]_[A-Za-z0-9]+/);
+    if (!m) { toast('Token "github_pat_" ile başlamalı. Alanı temizleyip yeniden yapıştır.', 'err'); return; }
+    form.gh_pat.value = m[0];
+    const c = { owner: form.owner.value, repo: form.repo.value, token: m[0] };
     btn.disabled = true; btn.textContent = 'Test ediliyor…';
     try {
       const info = await store.testConnection(c);
@@ -111,7 +116,7 @@ export function render(container) {
       toast('Bağlandı, veriler senkronize ediliyor');
       render(container);
     } catch (e) {
-      toast(e.status === 401 ? 'Token geçersiz' : e.status === 404 ? 'Repo bulunamadı ya da token bu repoya erişemiyor' : e.message, 'err');
+      toast(e.status === 401 ? 'GitHub token\'ı reddetti (401). Regenerate sonrası yeni değeri yapıştırdığından emin ol.' : e.status === 404 ? 'Repo bulunamadı ya da token bu repoya erişemiyor (404)' : e.message, 'err');
       btn.disabled = false; btn.textContent = 'Bağlan ve test et';
     }
   });
